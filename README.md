@@ -1,4 +1,4 @@
-#generator-cg-angular
+#generator-angjs
 
 >Yeoman Generator for Enterprise Angular Projects
 
@@ -24,8 +24,6 @@ All subgenerators prompt the user to specify where to save the new files.  Thus 
 In this example, the user has chosen to group the app into an `admin` folder, a `search` folder, and a `service` folder.
 
 
-    app.less ....................... main app-wide styles
-    app.js ......................... angular module initialization and route setup
     index.html ..................... main HTML file
     Gruntfile.js ................... Grunt build file
     /admin ......................... example admin module folder
@@ -57,6 +55,13 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
         my-service-spec.js ......... example service unit test
         my-service2.js ............. example service
         my-service2-spec.js ........ example service unit test
+    /js ............................ main javascript folder, containing the main app file
+        setup.js ................... angular module initialization and route setup
+    /less .......................... folder containing less files
+        styles.less ................ main less file containing links to others
+        style.less ................. less file, containing the majority of style code
+        mixins.less ................ mixins file
+        variables.less ............. less file containing variables
     /img ........................... images (not created by default but included in /dist if added)
     /dist .......................... distributable version of app built using grunt and Gruntfile.js
     /bower_component................ 3rd party libraries managed by bower
