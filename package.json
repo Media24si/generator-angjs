@@ -1,22 +1,22 @@
 {
-  "name": "generator-cg-angular",
-  "version": "3.2.0",
+  "name": "generator-angjs",
+  "version": "0.1.0",
   "description": "Yeoman Generator for Enterprise Angular projects.",
   "keywords": [
     "yeoman-generator",
     "angular"
   ],
-  "homepage": "https://github.com/cgross/generator-cg-angular",
-  "bugs": "https://github.com/cgross/generator-cg-angular/issues",
+  "homepage": "https://github.com/Neoglyph/generator-angjs",
+  "bugs": "https://github.com/Neoglyph/generator-angjs/issues",
   "author": {
-    "name": "Chris Gross",
-    "email": "schtoo@schtoo.com",
-    "url": "https://github.com/cgross"
+    "name": "Adam Stradovnik",
+    "email": "adam.stradovnik@gmail.com",
+    "url": "https://github.com/Neoglyph"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cgross/generator-cg-angular.git"
+    "url": "git://github.com/Neoglyph/generator-angjs.git"
   },
   "scripts": {
     "test": "mocha"
