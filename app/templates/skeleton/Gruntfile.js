@@ -100,6 +100,7 @@ module.exports = function (grunt) {
     copy: {
       main: {
         files: [
+          {nonull: true, src: ['index.html'], dest: 'dist/'},
           {src: ['img/**'], dest: 'dist/'},
           {src: ['bower_components/font-awesome/fonts/**'], dest: 'dist/',filter:'isFile',expand:true},
           {src: ['bower_components/bootstrap/fonts/**'], dest: 'dist/',filter:'isFile',expand:true}
