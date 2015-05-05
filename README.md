@@ -147,9 +147,9 @@ The build process uses [grunt-dom-munger](https://github.com/cgross/grunt-dom-mu
 
 Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing of the script and link tags.  Its very easy to exclude certain scripts or stylesheets from the concatenated files. This is often the case if you're using a CDN. This can also be used to prevent certain development scripts from being included in the final build.
 
-* To prevent a script or stylesheet from being included in concatenation, put a `data-concat="false"` attribute on the link or script tag.  This is currently applied for the `livereload.js` and `less.js` script tags.
+* To prevent a script or stylesheet from being included in concatenation, put a `data-build="exclude"` attribute on the link or script tag.  This is currently applied for the `livereload.js` and `less.js` script tags.
 
-* To prevent a script or link tag from being removed from the finalized `index.html`, use a `data-remove="false"` attribute.
+* To prevent a script or link tag from being removed from the finalized `index.html`, use a `data-remove="exclude"` attribute.
 
 
 Release History
