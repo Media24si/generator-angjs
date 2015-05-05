@@ -36,7 +36,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('css', ['clean'], function() {
-    return gulp.src('app.less')
+    return gulp.src('less/styles.less')
         .pipe(less())
         .pipe(cssmin({keepSpecialComments: 0}))
         .pipe(rename('app.full.min.css'))
@@ -103,13 +103,18 @@ gulp.task('fonts', ['clean'], function(){
         .pipe(gulp.dest('dist/bower_components/font-awesome/fonts/'));
 });
 
+gulp.task('rename', function(){
+    return gulp.src('dist/')
+        .pipe(gulp.dest('release/'));
+});
+
 gulp.task('jshint', function(){
     gulp.src(['!node_modules/**','!.grunt/**','!dist/**','!bower_components/**','**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('build', ['clean', 'css', 'js', 'indexHtml', 'images', 'fonts']);
+gulp.task('build', ['clean', 'css', 'js', 'indexHtml', 'images', 'fonts', 'rename']);
 
 /* 
 
