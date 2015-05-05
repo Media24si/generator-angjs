@@ -25,38 +25,20 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
 
 
     index.html ..................... main HTML file
+    setup.js ....................... angular module initialization and route setup
     Gruntfile.js ................... Grunt build file
-    /admin ......................... example admin module folder
-      admin.js ..................... admin module initialization and route setup
-      admin.less ................... admin module LESS
-      /admin-directive1 ............ angular directives folder
-        admin-directive1.js ........ example simple directive
-        admin-directive1-spec.js.... example simple directive unit test
-      /admin-directive2 ............ example complex directive (contains external partial)
-        admin-directive2.js ........ complex directive javascript
-        admin-directive2.html ...... complex directive partial
-        admin-directive2.less ...... complex directive LESS
-        admin-directive2-spec.js ... complex directive unit test
-      /admin-partial ............... example partial
-        admin-partial.html ......... example partial html
-        admin-partial.js ........... example partial controller
-        admin-partial.less ......... example partial LESS
-        admin-partial-spec.js ...... example partial unit test
     /search ........................ example search component folder
       my-filter.js ................. example filter
       my-filter-spec.js ............ example filter unit test
       /search-partial .............. example partial
         search-partial.html ........ example partial html
         search-partial.js .......... example partial controller
-        search-partial.less ........ example partial LESS
         search-partial-spec.js ..... example partial unit test
     /service ....................... angular services folder
         my-service.js .............. example service
         my-service-spec.js ......... example service unit test
         my-service2.js ............. example service
         my-service2-spec.js ........ example service unit test
-    /js ............................ main javascript folder, containing the main app file
-        setup.js ................... angular module initialization and route setup
     /less .......................... folder containing less files
         styles.less ................ main less file containing links to others
         style.less ................. less file, containing the majority of style code
@@ -66,6 +48,19 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
     /dist .......................... distributable version of app built using grunt and Gruntfile.js
     /bower_component................ 3rd party libraries managed by bower
     /node_modules .................. npm managed libraries used by grunt
+    /admin ......................... example admin module folder
+      admin.js ..................... admin module initialization and route setup
+      /admin-directive1 ............ angular directives folder
+        admin-directive1.js ........ example simple directive
+        admin-directive1-spec.js.... example simple directive unit test
+      /admin-directive2 ............ example complex directive (contains external partial)
+        admin-directive2.js ........ complex directive javascript
+        admin-directive2.html ...... complex directive partial
+        admin-directive2-spec.js ... complex directive unit test
+      /admin-partial ............... example partial
+        admin-partial.html ......... example partial html
+        admin-partial.js ........... example partial controller
+        admin-partial-spec.js ...... example partial unit test
 
 Getting Started
 -------------
