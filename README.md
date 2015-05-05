@@ -8,7 +8,7 @@ Features
 
 * Provides a directory structure geared towards large Angular projects.
     * Each controller, service, filter, and directive are placed in their own file.
-    * All files related to a conceptual unit are placed together.  For example, the controller, HTML, LESS, and unit test for a partial are placed together in the same directory.
+    * All files related to a conceptual unit are placed together.  For example, the controller, HTML, and unit test for a partial are placed together in the same directory.
 * Provides a ready-made Grunt build that produces an extremely optimized distribution.
    * Build uses [grunt-ng-annotate](https://github.com/olov/ng-annotate) so you don't have to use the Angular injection syntax for safe minification (i.e. you dont need `$inject` or `(['$scope','$http',...`.
    * `grunt serve` task allows you to run a simple development server with watch/livereload enabled.  Additionally, JSHint and the appropriate unit tests are run for the changed files.
@@ -19,7 +19,7 @@ Features
 
 Directory Layout
 -------------
-All subgenerators prompt the user to specify where to save the new files.  Thus you can create any directory structure you desire, including nesting.  The generator will create a handful of files in the root of your project including `index.html`, `app.js`, and `app.less`.  You determine how the rest of the project will be structured.
+All subgenerators prompt the user to specify where to save the new files.  Thus you can create any directory structure you desire, including nesting.  The generator will create a handful of files in the root of your project including `index.html`, `setup.js`, and a less folder including `styles|mixins|variables|style.less`.  You determine how the rest of the project will be structured.
 
 In this example, the user has chosen to group the app into an `admin` folder, a `search` folder, and a `service` folder.
 
@@ -98,8 +98,7 @@ There are a set of subgenerators to initialize empty Angular components.  Each o
 
 * Create one or more skeleton files (javascript, LESS, html, spec etc) for the component type.
 * Update index.html and add the necessary `script` tags.
-* Update app.less and add the @import as needed.
-* For partials, update the app.js, adding the necessary route call if a route was entered in the generator prompts.
+* For partials, update the setup.js, adding the necessary route call if a route was entered in the generator prompts.
 
 There are generators for `directive`,`partial`,`service`, `filter`, `module`, and `modal`.
 
