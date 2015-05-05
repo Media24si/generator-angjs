@@ -13,18 +13,13 @@ var CgangularGenerator = module.exports = function CgangularGenerator(args, opti
         this.config.set('directiveDirectory','directive/');
         this.config.set('filterDirectory','filter/');
         this.config.set('serviceDirectory','service/');
+        this.config.set('lessDirectory','less/');
         var inject = {
             js: {
                 file: 'index.html',
                 marker: cgUtils.JS_MARKER,
                 template: '<script src="<%= filename %>"></script>'
             }
-            /*less: {
-                relativeToModule: true,
-                file: '<%= module %>.less',
-                marker: cgUtils.LESS_MARKER,
-                template: '@import "<%= filename %>";'
-            }*/
         };
         this.config.set('inject',inject);
         this.config.save();
