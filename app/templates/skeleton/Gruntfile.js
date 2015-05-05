@@ -10,7 +10,7 @@ var pkg = require('./package.json');
 //This enables users to create any directory structure they desire.
 var createFolderGlobs = function(fileTypePatterns) {
   fileTypePatterns = Array.isArray(fileTypePatterns) ? fileTypePatterns : [fileTypePatterns];
-  var ignore = ['node_modules','bower_components','dist','temp'];
+  var ignore = ['node_modules','bower_components','dist','temp','release'];
   var fs = require('fs');
   return fs.readdirSync(process.cwd())
           .map(function(file){
@@ -162,10 +162,16 @@ module.exports = function (grunt) {
     },
     cssmin: {
       main: {
+        src:['temp/app.css'],
+        dest:'dist/css/app.min.css'
+      }
+    },
+    /*cssmin: {
+      main: {
         src:['temp/app.css','<%%= dom_munger.data.appcss %>'],
         dest:'dist/app.full.min.css'
       }
-    },
+    },*/
     concat: {
       main: {
         src: ['<%%= dom_munger.data.appjs %>','<%%= ngtemplates.main.dest %>'],
@@ -187,13 +193,13 @@ module.exports = function (grunt) {
     htmlmin: {
       main: {
         options: {
-          collapseBooleanAttributes: true,
           collapseWhitespace: true,
-          removeAttributeQuotes: true,
-          removeComments: true,
-          removeEmptyAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true
+          removeComments: true
+          //collapseBooleanAttributes: true,
+          //removeAttributeQuotes: true,
+          //removeEmptyAttributes: true,
+          //removeScriptTypeAttributes: true,
+          //removeStyleLinkTypeAttributes: true
         },
         files: {
           'dist/index.html': 'dist/index.html'
