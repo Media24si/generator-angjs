@@ -244,8 +244,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build',['jshint','clean:before','less','dom_munger:readscripts','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','dom_munger:removecss','dom_munger:addcss','dom_munger:removescripts','dom_munger:addscript','htmlmin','clean:after','rename']);
-  grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
-  grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
+  grunt.registerTask('serve', ['dom_munger:readscripts','jshint','connect', 'watch']);
+  grunt.registerTask('test',['dom_munger:readscripts','karma:all_tests']);
   grunt.registerTask('testjs',['jshint']);
 
   grunt.event.on('watch', function(action, filepath) {
