@@ -155,7 +155,7 @@ Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing
 Release History
 -------------
 ###### generator-angjs
-* 5/5/2015 - v0.9 - Changes to structure, Gruntfile and less file placements
+* 5/5/2015 - v0.9 - Changes to structure, Gruntfile and less file placements.
 ###### generator-cg-angular
 * 11/9/2014 - v3.2.0 - Switch from ngmin to ng-annotate.  Disabling grunt-contrib-imagemin so Windows users don't encounter its issues.  Subgenerators prompt for a name if not entered.  Other fixes.
 * 7/6/2014 - v3.1.2 - Fix for directive template URLs with backslashes on Windows.
