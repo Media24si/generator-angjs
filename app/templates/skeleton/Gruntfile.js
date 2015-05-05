@@ -65,19 +65,26 @@ module.exports = function (grunt) {
     },
     clean: {
       before:{
-        src:['dist','temp']
+        src:['dist','temp','release']
       },
       after: {
         src:['temp']
       }
     },
     less: {
-      production: {
+      main: {
         options: {
         },
         files: {
-          'temp/app.css': 'app.less'
+          'temp/app.css': 'less/styles.less'
         }
+      },
+      dev: {
+        options: {
+        },
+        files: {
+          'css/build.css': 'less/styles.less'
+        } 
       }
     },
     ngtemplates: {
@@ -102,26 +109,55 @@ module.exports = function (grunt) {
         ]
       }
     },
+    rename: {
+      main: {
+        files: [
+          {src: ['dist/'], dest: 'release/'}
+        ]
+      }
+    },
     dom_munger:{
-      read: {
+      readscripts: {
         options: {
-          read:[
-            {selector:'script[data-concat!="false"]',attribute:'src',writeto:'appjs'},
-            {selector:'link[rel="stylesheet"][data-concat!="false"]',attribute:'href',writeto:'appcss'}
-          ]
+          read:{selector:'script[data-build!="exclude"]',attribute:'src',writeto:'appjs'}
         },
-        src: 'index.html'
+        src:'index.html'
       },
-      update: {
-        options: {
-          remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
-          append: [
-            {selector:'body',html:'<script src="app.full.min.js"></script>'},
-            {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'}
-          ]
+      removescripts: {
+        options:{
+          remove:'script[data-remove!="exclude"]'
         },
-        src:'index.html',
-        dest: 'dist/index.html'
+        src:'dist/index.html'
+      }, 
+      addscript: {
+        options:{
+          append:{selector:'body',html:'<script src="app.full.min.js?v=<%= new Date().getTime() %>"></script>'}
+        },
+        src:'dist/index.html'
+      },  
+      addsharedscript: {
+        options:{
+          append:{selector:'body',html:'<script src="app.shared.min.js?v=<%= new Date().getTime() %>"></script>'},
+        },
+        src:'dist/index.html'
+      },       
+      removecss: {
+        options:{
+          remove:'link[data-remove!="exclude"]'
+        },
+        src:'dist/index.html'
+      },
+      addcss: {
+        options:{
+          append:{selector:'head',html:'<link rel="stylesheet" href="css/app.min.css?v=<%= new Date().getTime() %>">'}
+        },
+        src:'dist/index.html'
+      },
+      addsharedcss: {
+        options:{
+          append:{selector:'head',html:'<link rel="stylesheet" href="css/app.shared.min.css">'}
+        },
+        src:'dist/index.html'
       }
     },
     cssmin: {
@@ -200,9 +236,10 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
+  grunt.registerTask('build',['jshint','clean:before','less','dom_munger:readscripts','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','dom_munger:removecss','dom_munger:addcss','dom_munger:removescripts','dom_munger:addscript','htmlmin','clean:after','rename']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
+  grunt.registerTask('testjs',['jshint']);
 
   grunt.event.on('watch', function(action, filepath) {
     //https://github.com/gruntjs/grunt-contrib-watch/issues/156
