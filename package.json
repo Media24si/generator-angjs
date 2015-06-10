@@ -1,6 +1,6 @@
 {
   "name": "generator-angjs",
-  "version": "v1.0",
+  "version": "1.0.0",
   "description": "Yeoman Generator for Enterprise Angular projects.",
   "keywords": [
     "yeoman-generator",
