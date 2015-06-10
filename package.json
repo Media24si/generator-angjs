@@ -4,7 +4,8 @@
   "description": "Yeoman Generator for Enterprise Angular projects.",
   "keywords": [
     "yeoman-generator",
-    "angular"
+    "angular",
+    "cg-angular"
   ],
   "homepage": "https://github.com/Neoglyph/generator-angjs",
   "bugs": "https://github.com/Neoglyph/generator-angjs/issues",
